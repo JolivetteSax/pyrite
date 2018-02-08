@@ -16,7 +16,7 @@ for item in unspent:
     max_id = num
 
 for tx in transactions:
-  print tx
+  print "Processing:" + tx['id']
   if unspent.has_key(tx['id']):
     if unspent[tx['id']]['owner'] != tx['sender']:
       raise Exception("Bad TX, owner must match sender");
