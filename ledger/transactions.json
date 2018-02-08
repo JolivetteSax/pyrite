@@ -1,0 +1,16 @@
+[
+  {
+    "sender": "JolivetteSax",
+    "id": "output1",
+    "outputs": [
+      {
+        "recipient": "Moxious",
+        "amount": 5
+      },
+      { 
+        "recipient": "JolivetteSax",
+        "amount": 5
+      }
+    ]
+  }
+]
