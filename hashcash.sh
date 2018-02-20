@@ -1,17 +1,22 @@
+# This $lpad variable will be the left part of the hash each time through the loop
+# This is the part of the sha512 sum that we are hoping will be zeros
 lpad="start"
 
+# These two variables come from the command to start this program
 BLOCK_NUMBER=$1
 ZEROS=$2
 
 # Transactions are read from STDIN
 TRANSACTIONS=$(</dev/stdin)
 
-# leading zero target for difficulty
+# leading zero target for difficulty. The more zeros you want in the sha512 output
+# The less likely it is you'll find one, so you'll probably have to run more nonce's
+# The hashcash paper by satoshi nakamoto proves that mathematically, adding a larger
+# padding increases the difficulty exponentially
 target=`for ((i=1; i<=$ZEROS; i++)); do echo -n 0; done`
 
 # The nonce is used to change the sha512sum each time through the loop
 nonce=0
-number=""
 
 # This is the mining loop. How quickly it runs determines how good you will be at mining, 
 # Because you'll never know how many times you need to run this loop before you get a 
